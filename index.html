@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Ramakdawala - Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for smooth scrolling and general look */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            /* Slate 900 */
+            color: #F1F5F9;
+            /* Slate 100 */
+        }
+
+        .section-padding {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Custom scrollbar styling (optional, but nice touch) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3B82F6;
+            /* Blue 500 */
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1E293B;
+            /* Slate 800 */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#3B82F6',
+                        'secondary': '#6366F1',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-sm shadow-lg">
+        <nav class="flex justify-between items-center section-padding py-4 sm:py-6 px-4">
+            <a href="#hero" class="text-2xl font-bold text-primary hover:text-white transition duration-300">
+                Mohammed Ramakdawala
+            </a>
+            <div class="space-x-4 hidden md:flex">
+                <a href="#about" class="text-sm font-medium hover:text-primary transition duration-300">About</a>
+                <a href="#skills" class="text-sm font-medium hover:text-primary transition duration-300">Skills</a>
+                <a href="#projects" class="text-sm font-medium hover:text-primary transition duration-300">Projects</a>
+                <a href="#contact" class="text-sm font-medium hover:text-primary transition duration-300">Contact</a>
+            </div>
+            <!-- Simple Mobile Menu Button (Optional, using JS for toggle) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-800 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-6 h-6 text-white">
+                    <path d="M4 6L20 6"></path>
+                    <path d="M4 12L20 12"></path>
+                    <path d="M4 18L20 18"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95 py-2">
+            <div class="flex flex-col space-y-2 px-4 pb-4">
+                <a href="#about"
+                    class="block py-2 text-sm font-medium hover:bg-slate-700 rounded-md transition duration-300"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+                <a href="#skills"
+                    class="block py-2 text-sm font-medium hover:bg-slate-700 rounded-md transition duration-300"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden')">Skills</a>
+                <a href="#projects"
+                    class="block py-2 text-sm font-medium hover:bg-slate-700 rounded-md transition duration-300"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden')">Projects</a>
+                <a href="#contact"
+                    class="block py-2 text-sm font-medium hover:bg-slate-700 rounded-md transition duration-300"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / About Section -->
+    <section id="about" class="section-padding pt-16 sm:pt-24 min-h-screen flex items-center">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+            <!-- Text Content (Order 2 on Mobile, Order 1 on Desktop) -->
+            <div class="md:col-span-2 order-2 md:order-1">
+                <p class="text-lg text-primary font-semibold mb-2">Hello, I'm</p>
+                <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight text-white mb-4">
+                    Mohammed Ramakdawala
+                </h1>
+                <h2 class="text-2xl sm:text-3xl text-slate-300 mb-6">
+                    A Passionate <span class="text-secondary">Software Developer</span>
+                </h2>
+                <p class="text-slate-400 text-lg mb-8 max-w-xl">
+                    I build accessible, responsive, and high-performing applications. With 5 years of experience in
+                    full-stack development, I specialize in bringing complex ideas to life, from initial concept to
+                    deployment. I am currently focused on modern cloud architectures and scaling solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects"
+                        class="px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow-xl hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                        View Projects
+                    </a>
+                    <a href="#contact"
+                        class="px-6 py-3 border border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image (Order 1 on Mobile, Order 2 on Desktop) -->
+            <div class="md:col-span-1 flex justify-center order-1 md:order-2">
+                <img src="headphoto.jpeg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/250x250/1E293B/F1F5F9?text=MR'"
+                    alt="Mohammed Ramakdawala - Professional Photo"
+                    class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-2xl transition duration-500 hover:rotate-3" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-slate-900/50 border-t border-b border-slate-800">
+        <h2 class="text-4xl font-bold text-center mb-12">My Skills & Tech Stack</h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            <!-- Skill Card Template -->
+            <div
+                class="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                <span class="text-4xl mb-2">💻</span>
+                <p class="text-lg font-semibold text-white">JavaScript</p>
+            </div>
+            <div
+                class="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                <span class="text-4xl mb-2">⚛️</span>
+                <p class="text-lg font-semibold text-white">React</p>
+            </div>
+            <div
+                class="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                <span class="text-4xl mb-2">🍃</span>
+                <p class="text-lg font-semibold text-white">Tailwind CSS</p>
+            </div>
+            <div
+                class="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                <span class="text-4xl mb-2">📦</span>
+                <p class="text-lg font-semibold text-white">Node.js</p>
+            </div>
+            <div
+                class="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                <span class="text-4xl mb-2">💾</span>
+                <p class="text-lg font-semibold text-white">SQL/NoSQL</p>
+            </div>
+            <div
+                class="flex flex-col items-center p-4 bg-slate-800 rounded-lg shadow-lg hover:shadow-primary/30 transition duration-300 transform hover:-translate-y-1">
+                <span class="text-4xl mb-2">☁️</span>
+                <p class="text-lg font-semibold text-white">Cloud (AWS/GCP)</p>
+            </div>
+            <!-- Add more skills as needed -->
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Project Card 1 -->
+            <div
+                class="bg-slate-800 rounded-xl shadow-2xl overflow-hidden group hover:shadow-primary/50 transition duration-500">
+                <img src="https://placehold.co/600x400/1F2937/F1F5F9?text=Project+1+Image"
+                    alt="Project 1: E-commerce Platform"
+                    class="w-full h-48 object-cover group-hover:scale-[1.02] transition duration-500">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-primary mb-2">E-commerce Platform</h3>
+                    <p class="text-slate-400 mb-4">A full-stack application built with React, Node.js, and MongoDB,
+                        featuring secure payment integration and admin dashboards.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300 mb-4">
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">React</span>
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">Node.js</span>
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">MongoDB</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" target="_blank"
+                            class="text-sm font-semibold text-white hover:text-primary transition duration-300 flex items-center">
+                            View Live
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 ml-1">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <path d="M15 3h6v6"></path>
+                                <path d="M10 14L21 3"></path>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank"
+                            class="text-sm font-semibold text-white hover:text-secondary transition duration-300 flex items-center">
+                            GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 ml-1">
+                                <path d="M15 22L9 22"></path>
+                                <path d="M12 17.5V22"></path>
+                                <path
+                                    d="M2 10.5C2 7.738 4.239 5.5 7 5.5H17C19.761 5.5 22 7.738 22 10.5V17.5C22 20.262 19.761 22.5 17 22.5H7C4.239 22.5 2 20.262 2 17.5V10.5Z">
+                                </path>
+                                <path d="M7 5.5V4C7 2.895 7.895 2 9 2H15C16.105 2 17 2.895 17 4V5.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div
+                class="bg-slate-800 rounded-xl shadow-2xl overflow-hidden group hover:shadow-primary/50 transition duration-500">
+                <img src="https://placehold.co/600x400/1F2937/F1F5F9?text=Project+2+Image"
+                    alt="Project 2: Data Visualization Tool"
+                    class="w-full h-48 object-cover group-hover:scale-[1.02] transition duration-500">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-primary mb-2">Data Visualization Tool</h3>
+                    <p class="text-slate-400 mb-4">A custom dashboard application to process large datasets and render
+                        interactive charts using D3.js and a Python backend.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300 mb-4">
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">D3.js</span>
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">API</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" target="_blank"
+                            class="text-sm font-semibold text-white hover:text-primary transition duration-300 flex items-center">
+                            View Live
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 ml-1">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <path d="M15 3h6v6"></path>
+                                <path d="M10 14L21 3"></path>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank"
+                            class="text-sm font-semibold text-white hover:text-secondary transition duration-300 flex items-center">
+                            GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 ml-1">
+                                <path d="M15 22L9 22"></path>
+                                <path d="M12 17.5V22"></path>
+                                <path
+                                    d="M2 10.5C2 7.738 4.239 5.5 7 5.5H17C19.761 5.5 22 7.738 22 10.5V17.5C22 20.262 19.761 22.5 17 22.5H7C4.239 22.5 2 20.262 2 17.5V10.5Z">
+                                </path>
+                                <path d="M7 5.5V4C7 2.895 7.895 2 9 2H15C16.105 2 17 2.895 17 4V5.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div
+                class="bg-slate-800 rounded-xl shadow-2xl overflow-hidden group hover:shadow-primary/50 transition duration-500">
+                <img src="https://placehold.co/600x400/1F2937/F1F5F9?text=Project+3+Image" alt="Project 3: Mobile Game"
+                    class="w-full h-48 object-cover group-hover:scale-[1.02] transition duration-500">
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-primary mb-2">Collaborative Chat App</h3>
+                    <p class="text-slate-400 mb-4">A real-time messaging application built with Firebase, designed for
+                        fast, secure, and multi-user communication.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300 mb-4">
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">Firebase</span>
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">TypeScript</span>
+                        <span class="bg-slate-700 px-3 py-1 rounded-full">Tailwind</span>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" target="_blank"
+                            class="text-sm font-semibold text-white hover:text-primary transition duration-300 flex items-center">
+                            View Live
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 ml-1">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <path d="M15 3h6v6"></path>
+                                <path d="M10 14L21 3"></path>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank"
+                            class="text-sm font-semibold text-white hover:text-secondary transition duration-300 flex items-center">
+                            GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 ml-1">
+                                <path d="M15 22L9 22"></path>
+                                <path d="M12 17.5V22"></path>
+                                <path
+                                    d="M2 10.5C2 7.738 4.239 5.5 7 5.5H17C19.761 5.5 22 7.738 22 10.5V17.5C22 20.262 19.761 22.5 17 22.5H7C4.239 22.5 2 20.262 2 17.5V10.5Z">
+                                </path>
+                                <path d="M7 5.5V4C7 2.895 7.895 2 9 2H15C16.105 2 17 2.895 17 4V5.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-slate-900/50 border-t border-slate-800">
+        <h2 class="text-4xl font-bold text-center mb-4">Let's Connect</h2>
+        <p class="text-center text-slate-400 mb-12 max-w-lg mx-auto">
+            Ready to start a project? Send me a message, and I'll get back to you as soon as possible.
+        </p>
+
+        <div class="max-w-xl mx-auto bg-slate-800 p-8 rounded-xl shadow-2xl">
+            <form id="contact-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-white outline-none">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-white outline-none">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" required
+                        class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-primary focus:border-primary text-white outline-none"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full px-6 py-3 bg-primary text-white font-semibold rounded-lg shadow-xl hover:bg-blue-600 transition duration-300 transform hover:scale-[1.01]">
+                    Send Message
+                </button>
+                <p id="form-message" class="text-center text-sm font-medium hidden"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-400">
+            <p>&copy; <span id="current-year"></span> Mohammed Ramakdawala. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" target="_blank" class="hover:text-primary transition duration-300">LinkedIn</a>
+                <a href="mailto:your.email@example.com" class="hover:text-primary transition duration-300">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Contact Form Submission Handler (Simulated)
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            if (contactForm && formMessage) {
+                contactForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // Show loading state (optional)
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    submitButton.textContent = 'Sending...';
+                    submitButton.disabled = true;
+
+                    // Simulate a network request delay
+                    setTimeout(() => {
+                        // Display success message instead of using alert()
+                        formMessage.textContent = 'Thank you for your message! I will be in touch soon.';
+                        formMessage.classList.remove('hidden', 'text-red-500');
+                        formMessage.classList.add('text-green-500');
+
+                        // Reset form and button state
+                        contactForm.reset();
+                        submitButton.textContent = 'Send Message';
+                        submitButton.disabled = false;
+
+                        // Hide message after a few seconds
+                        setTimeout(() => {
+                            formMessage.classList.add('hidden');
+                        }, 5000);
+
+                    }, 1500); // 1.5 second delay
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
